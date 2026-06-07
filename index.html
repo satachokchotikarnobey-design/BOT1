@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>ZAZA PANEL KING NO.1</title>
+    <title>ZAZA PANEL | เตรียมพร้อมก่อนใช้งาน</title>
     <style>
         * {
             margin: 0;
@@ -15,45 +15,57 @@
             min-height: 100vh;
             font-family: 'Courier New', monospace;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .container {
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 550px;
+            width: 100%;
         }
         .card {
             background: rgba(10,10,20,0.95);
             backdrop-filter: blur(12px);
             border-radius: 48px;
             border: 3px solid #ff6600;
-            padding: 25px;
-            margin-bottom: 20px;
+            padding: 30px 25px;
             box-shadow: 0 0 40px rgba(255,102,0,0.5);
+            text-align: center;
+        }
+        .crown {
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
         h1 {
-            font-size: 2rem;
-            background: linear-gradient(45deg, #ffcc00, #ff6600, #ff3300);
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #ffcc00, #ff6600);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-align: center;
-            letter-spacing: 2px;
         }
-        .subtitle {
-            text-align: center;
-            color: #ffaa44;
-            margin: 10px 0 20px;
+        .warning-box {
+            background: #331100;
+            border-left: 5px solid #ff3300;
+            padding: 15px;
+            border-radius: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .warning-text {
+            color: #ffaa66;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .warning-detail {
+            color: #ff8844;
             font-size: 0.8rem;
-            background: #000000aa;
-            display: inline-block;
-            width: 100%;
-            padding: 8px;
-            border-radius: 30px;
         }
         .btn {
             display: block;
             width: 100%;
             padding: 16px;
-            margin: 12px 0;
+            margin: 15px 0;
             font-size: 1.2rem;
             font-weight: bold;
             border: none;
@@ -65,86 +77,52 @@
         .btn:active {
             transform: scale(0.97);
         }
-        .btn-gg {
-            background: #1a331a;
-            border: 2px solid #00ff88;
-            color: #00ff88;
+        .btn-dpi {
+            background: #1a2a3a;
+            border: 2px solid #00aaff;
+            color: #88ddff;
         }
-        .btn-king {
+        .btn-headshot {
             background: linear-gradient(135deg, #ff6600, #cc3300);
             border: 2px solid #ffcc00;
             color: white;
             text-shadow: 0 0 5px black;
         }
-        .btn-script {
-            background: #2a1a1a;
-            border: 2px solid #ff6600;
-            color: #ffaa44;
-        }
-        .code-box {
-            background: #0a0a0a;
-            padding: 15px;
-            border-radius: 24px;
-            font-size: 0.7rem;
-            color: #ffaa44;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-break: break-all;
-            font-family: monospace;
-            border: 1px solid #ff6600;
-            max-height: 250px;
-            margin: 15px 0;
+        .btn-gg {
+            background: #1a331a;
+            border: 2px solid #00ff88;
+            color: #00ff88;
+            margin-top: 5px;
         }
         .step {
             background: #000000aa;
-            padding: 15px;
             border-radius: 20px;
+            padding: 15px;
+            text-align: left;
+            margin: 20px 0 10px;
             font-size: 0.75rem;
             color: #ffaa44;
-            margin-top: 15px;
         }
         .step h3 {
             color: #ff8844;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .step ol {
             padding-left: 20px;
         }
-        .step li {
-            margin: 8px 0;
-        }
         .footer {
-            text-align: center;
             font-size: 0.6rem;
             color: #ff8844;
             margin-top: 20px;
-        }
-        .visitor-count {
-            background: #000000aa;
-            border-radius: 20px;
-            padding: 8px;
             text-align: center;
+        }
+        .status {
+            background: #00000099;
+            padding: 8px;
+            border-radius: 30px;
             font-size: 0.7rem;
             color: #ffaa44;
             margin-top: 10px;
-        }
-        .crown {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        .download-box {
-            background: #1a1a2a;
-            border-radius: 20px;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: center;
-        }
-        .download-link {
-            color: #00ff88;
-            text-decoration: none;
-            font-size: 0.8rem;
-            word-break: break-all;
         }
     </style>
 </head>
@@ -153,95 +131,49 @@
     <div class="card">
         <div class="crown">👑🔥👑</div>
         <h1>ZAZA PANEL</h1>
-        <h1 style="font-size:1.5rem;">KING NO.1</h1>
-        <div class="subtitle">100% HEADSHOT | FREE FIRE</div>
+        <h1 style="font-size:1.2rem;">KING NO.1</h1>
 
-        <!-- ปุ่มดาวน์โหลด GG -->
-        <a href="https://gameguardian.net/download/GameGuardian.101.1.apk" target="_blank">
-            <button class="btn btn-gg">📥 ดาวน์โหลด Game Guardian (GG)</button>
-        </a>
-
-        <!-- ปุ่มสคริปต์ ZAZA -->
-        <button class="btn btn-king" id="copyBtn">👑 คัดลอกสคริปต์ ZAZA 👑</button>
-        <button class="btn btn-script" id="downloadScriptBtn">💾 ดาวน์โหลดสคริปต์ .lua</button>
-        <button class="btn btn-script" id="copyAllBtn">📦 คัดลอกทั้งหมด (แจกเพื่อน)</button>
-
-        <div class="code-box" id="scriptCode">
---=====================================
---   ZAZA PANEL KING NO.1
---   FREE FIRE MAGIC BULLET
---=====================================
-
-print("👑 ZAZA PANEL KING NO.1 LOADING...")
-
-gg.setRanges(gg.REGION_CODE_APP)
-gg.setVisible(false)
-
-gg.searchNumber("1.0;1.5;2.0", gg.TYPE_FLOAT)
-gg.refineNumber("1.5", gg.TYPE_FLOAT)
-local t = gg.getResults(100)
-for i, v in ipairs(t) do
-    gg.setValues({{address = v.address, value = 999.0, flags = gg.TYPE_FLOAT}})
-end
-gg.clearResults()
-
-gg.searchNumber("100", gg.TYPE_FLOAT)
-local dmg = gg.getResults(50)
-for i, v in ipairs(dmg) do
-    gg.setValues({{address = v.address, value = 99999.0, flags = gg.TYPE_FLOAT}})
-end
-gg.clearResults()
-
-gg.searchNumber("0.5;1.0;1.5", gg.TYPE_FLOAT)
-local recoil = gg.getResults(100)
-for i, v in ipairs(recoil) do
-    gg.setValues({{address = v.address, value = 0.0, flags = gg.TYPE_FLOAT}})
-end
-gg.clearResults()
-
-gg.alert("👑 ZAZA PANEL KING NO.1 ACTIVATED!\nยิงตรงไหนก็เฮดชอต 100%")
-
-print("👑 ZAZA PANEL KING NO.1 READY!")
+        <!-- ส่วนเตือนก่อนใช้งาน -->
+        <div class="warning-box">
+            <div class="warning-text">⚠️ ก่อนจะใช้งาน ปรับตั้งค่าดังนี้ก่อน ⚠️</div>
+            <div class="warning-detail">• ตั้งค่า DPI ในเกมให้เป็น 2000<br>• ปรับ Sensitivity ให้เหมาะสม<br>• ปิด Anti-virus ชั่วคราว (ถ้าใช้ GG)</div>
         </div>
 
+        <!-- ปุ่มตั้งค่า DPI 2000 -->
+        <button class="btn btn-dpi" id="dpiBtn">🎯 ตั้งค่า DPI 2000</button>
+
+        <!-- ปุ่มยิงตัวขึ้นหัว (Magic Bullet) -->
+        <button class="btn btn-headshot" id="headshotBtn">🔫 ยิงตัวขึ้นหัว (เปิด Magic Bullet)</button>
+
+        <!-- ส่วนเชื่อมต่อ GG (เสริม) -->
+        <button class="btn btn-gg" id="ggBtn">📥 ดาวน์โหลด Game Guardian</button>
+
+        <!-- วิธีใช้ -->
         <div class="step">
-            <h3>🎯 วิธีใช้ ZAZA PANEL</h3>
+            <h3>📌 วิธีใช้ Magic Bullet</h3>
             <ol>
-                <li>📥 กด <strong>"ดาวน์โหลด Game Guardian"</strong> ข้างบน</li>
-                <li>📱 ติดตั้ง GG (เปิดติดตั้งจากแหล่งไม่รู้จัก)</li>
-                <li>👑 กด <strong>"คัดลอกสคริปต์ ZAZA"</strong></li>
-                <li>🎮 เปิดเกม <strong>FreeFire</strong> ค้างไว้</li>
-                <li>⚙️ เปิด GG → เลือก Process <strong>FreeFire</strong></li>
-                <li>📂 กดเมนู → <strong>Execute Script</strong> → วางสคริปต์</li>
-                <li>🔥 กด <strong>Run</strong> → ZAZA PANEL จะทำงาน</li>
-                <li>💀 กลับเข้าเกม <strong>ยิงเลย! ยิงไหนก็เฮดชอต</strong></li>
+                <li>กด <strong>ตั้งค่า DPI 2000</strong> แล้วตั้งค่าในเกมตามที่แนะนำ</li>
+                <li>กด <strong>ยิงตัวขึ้นหัว</strong> → จะได้สคริปต์ไปใช้ใน GG</li>
+                <li>ติดตั้ง GG จากปุ่มข้างล่าง (ถ้ายังไม่มี)</li>
+                <li>เปิด GG → เลือก FreeFire → Execute Script → วางสคริปต์ → Run</li>
+                <li>กลับเข้าเกม ยิงที่ไหนก็เฮดชอต</li>
             </ol>
         </div>
 
-        <div class="download-box">
-            🔗 <strong>ลิงก์ GG สำรอง (ถ้าลิงก์บนใช้ไม่ได้)</strong><br>
-            <a href="https://gameguardian.net/download" target="_blank" class="download-link">https://gameguardian.net/download</a>
+        <div class="status" id="statusMsg">
+            👑 พร้อมใช้งานแล้ว กดปุ่มข้างบน
         </div>
-
-        <div class="visitor-count" id="visitorCount">
-            👑 กำลังโหลด...
+        <div class="footer">
+            ⚠️ ต้อง Root หรือใช้ Emulator เท่านั้น | เสี่ยงแบน<br>
+            ZAZA PANEL KING NO.1
         </div>
-    </div>
-
-    <div class="footer">
-        ⚠️ ต้อง Root (มือถือ) หรือใช้ Emulator เท่านั้น<br>
-        ⚠️ Garena อัปเดตบ่อย ค่าอาจเปลี่ยน ใช้แล้วเสี่ยงแบน<br>
-        👑 ZAZA PANEL KING NO.1
     </div>
 </div>
 
 <script>
-    const scriptText = `--=====================================
---   ZAZA PANEL KING NO.1
---   FREE FIRE MAGIC BULLET
---=====================================
-
-print("👑 ZAZA PANEL KING NO.1 LOADING...")
+    // สคริปต์ Magic Bullet ของ ZAZA PANEL
+    const magicScript = `-- ZAZA PANEL KING NO.1
+-- MAGIC BULLET 100% HEADSHOT
 
 gg.setRanges(gg.REGION_CODE_APP)
 gg.setVisible(false)
@@ -261,63 +193,32 @@ for i, v in ipairs(dmg) do
 end
 gg.clearResults()
 
-gg.searchNumber("0.5;1.0;1.5", gg.TYPE_FLOAT)
-local recoil = gg.getResults(100)
-for i, v in ipairs(recoil) do
-    gg.setValues({{address = v.address, value = 0.0, flags = gg.TYPE_FLOAT}})
-end
-gg.clearResults()
+gg.alert("👑 ZAZA PANEL ACTIVATED!\\nยิงตรงไหนก็เฮดชอต 100%")`;
 
-gg.alert("👑 ZAZA PANEL KING NO.1 ACTIVATED!\\nยิงตรงไหนก็เฮดชอต 100%")
+    // ปุ่ม DPI 2000
+    document.getElementById('dpiBtn').addEventListener('click', () => {
+        // จำลองการตั้งค่า DPI (อธิบายวิธีตั้งค่าจริงในเกม)
+        alert("📌 วิธีตั้งค่า DPI 2000 ใน FreeFire:\n\n1. เปิดเกม FreeFire\n2. ไปที่ Settings → Sensitivity\n3. เลื่อนดูจะมีค่า DPI (ถ้ามี) หรือให้ปรับ sensitivity ทุกตัวให้สูงขึ้น\n4. หรือใช้แอพเปลี่ยน DPI ทั้งระบบ (ต้อง root) เช่น 'DPI Changer'\n\n⚠️ ถ้าเกมไม่มีค่า DPI ให้ปรับ Sensitivity ทุกหัวข้อเป็น 200-300 แทน");
+        document.getElementById('statusMsg').innerHTML = "✅ แนะนำการตั้ง DPI 2000 เรียบร้อย (ดูใน popup)";
+    });
 
-print("👑 ZAZA PANEL KING NO.1 READY!")`;
-
-    // ปุ่มคัดลอกสคริปต์
-    document.getElementById('copyBtn').addEventListener('click', async () => {
+    // ปุ่มยิงตัวขึ้นหัว (คัดลอกสคริปต์ Magic Bullet)
+    document.getElementById('headshotBtn').addEventListener('click', async () => {
         try {
-            await navigator.clipboard.writeText(scriptText);
-            alert('✅ คัดลอกสคริปต์ ZAZA เรียบร้อย!');
+            await navigator.clipboard.writeText(magicScript);
+            document.getElementById('statusMsg').innerHTML = "✅ คัดลอกสคริปต์ Magic Bullet เรียบร้อย! ไปวางใน GG ได้เลย";
+            alert("คัดลอกสคริปต์ 'ยิงตัวขึ้นหัว' เรียบร้อย! เปิด GG -> Execute Script -> Paste -> Run");
         } catch (err) {
-            alert('❌ คัดลอกไม่สำเร็จ ให้กดตรงข้อความในกรอบแล้ว copy เอาเอง');
+            alert("❌ คัดลอกไม่สำเร็จ ให้ลองกดตรงข้อความใน popup แล้ว copy เอง");
+            document.getElementById('statusMsg').innerHTML = "❌ คัดลอกไม่สำเร็จ ลองใหม่";
         }
     });
 
-    // ปุ่มดาวน์โหลดสคริปต์ .lua
-    document.getElementById('downloadScriptBtn').addEventListener('click', () => {
-        const blob = new Blob([scriptText], {type: 'text/plain'});
-        const a = document.createElement('a');
-        const url = URL.createObjectURL(blob);
-        a.href = url;
-        a.download = 'zaza_panel.lua';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        alert('✅ ดาวน์โหลดสคริปต์ ZAZA PANEL เรียบร้อย!');
+    // ปุ่มดาวน์โหลด GG
+    document.getElementById('ggBtn').addEventListener('click', () => {
+        window.open('https://gameguardian.net/download/GameGuardian.101.1.apk', '_blank');
+        document.getElementById('statusMsg').innerHTML = "📥 กำลังเปิดลิงก์ดาวน์โหลด GG";
     });
-
-    // ปุ่มคัดลอกทั้งหมด (แจกเพื่อน)
-    document.getElementById('copyAllBtn').addEventListener('click', async () => {
-        const fullMessage = `👑 ZAZA PANEL KING NO.1 👑\n\nลิงก์โหลด GG: https://gameguardian.net/download\n\nสคริปต์:\n${scriptText}\n\n📌 วิธีใช้:\n1. โหลด GG จากลิงก์\n2. ติดตั้งและเปิด GG\n3. เปิด FreeFire\n4. Execute Script → วางสคริปต์\n5. Run → ยิงเลย!\n\nแจกฟรีโดย ZAZA PANEL`;
-        try {
-            await navigator.clipboard.writeText(fullMessage);
-            alert('✅ คัดลอกสคริปต์ + ลิงก์ GG + วิธีใช้ เรียบร้อย! ส่งให้เพื่อนได้เลย');
-        } catch (err) {
-            alert('❌ คัดลอกไม่สำเร็จ');
-        }
-    });
-
-    // นับจำนวนคนเข้าใช้
-    async function updateVisitorCount() {
-        try {
-            const response = await fetch('https://api.countapi.xyz/hit/zazapanel_king/visits');
-            const data = await response.json();
-            document.getElementById('visitorCount').innerHTML = `👑 มีคนมาใช้ ZAZA PANEL แล้ว ${data.value} คน`;
-        } catch (e) {
-            document.getElementById('visitorCount').innerHTML = `👑 ZAZA PANEL KING NO.1`;
-        }
-    }
-    updateVisitorCount();
 </script>
 </body>
 </html>
