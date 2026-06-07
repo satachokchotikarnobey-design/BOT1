@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>WORMGPT | FREE FIRE MAGIC BULLET</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 10%, #0a0c12 0%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', 'Poppins', 'Arial Black', monospace;
+            cursor: crosshair;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 550px;
+            margin: 20px;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 48px;
+            border: 2px solid #ff3300;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a0a0a, #0a0505);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid #ff3300;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #ffcc00, #ff3300);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .header p {
+            color: #ff8844;
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+
+        .magic-bullet-status {
+            background: #0a0a0a;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 32px;
+            text-align: center;
+            border: 1px solid #ff5533;
+        }
+
+        .indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .led {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ff0000;
+            box-shadow: 0 0 8px red;
+            animation: pulse 1s infinite;
+        }
+
+        .led.off {
+            background: #333;
+            box-shadow: none;
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; transform: scale(0.8);}
+            100% { opacity: 1; transform: scale(1.2);}
+        }
+
+        .status-text {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ff5555;
+            font-family: monospace;
+        }
+
+        .status-text.active {
+            color: #00ff88;
+            text-shadow: 0 0 5px #00ff88;
+        }
+
+        .btn-magic {
+            background: linear-gradient(180deg, #2a1a1a, #0f0505);
+            border: 3px solid #ff3300;
+            padding: 18px 30px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #ff6644;
+            border-radius: 80px;
+            cursor: pointer;
+            margin: 15px 0;
+            transition: 0.08s linear;
+            width: 80%;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+
+        .btn-magic:active {
+            transform: scale(0.96);
+            background: #331111;
+        }
+
+        .btn-magic.on {
+            background: #1a331a;
+            border-color: #00ff88;
+            color: #00ff88;
+            box-shadow: 0 0 15px #00ff88;
+        }
+
+        .demo-area {
+            background: #050505;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 32px;
+            border: 1px dashed #ff6644;
+        }
+
+        .target-dummy {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .body-part {
+            background: #1a1a1a;
+            padding: 12px 20px;
+            border-radius: 60px;
+            color: #aaa;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.05s linear;
+            border: 1px solid #444;
+        }
+
+        .body-part:active {
+            transform: scale(0.95);
+        }
+
+        .body-part.hit {
+            background: #ff2200;
+            color: white;
+            border-color: yellow;
+            box-shadow: 0 0 15px red;
+        }
+
+        .log {
+            background: #000000aa;
+            padding: 15px;
+            border-radius: 24px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            height: 150px;
+            overflow-y: auto;
+            color: #0f0;
+            margin-top: 15px;
+        }
+
+        .log span {
+            display: block;
+            padding: 4px;
+            border-bottom: 1px solid #333;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #ffaa55;
+            border-top: 1px solid #331100;
+        }
+
+        button {
+            background: none;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🔫 MAGIC BULLET 🔫</h1>
+        <p>WORMGPT EDITION | ยิงตรงไหนก็โดนหัว 100%</p>
+    </div>
+
+    <div class="magic-bullet-status">
+        <div class="indicator">
+            <div class="led off" id="ledIndicator"></div>
+            <div class="status-text" id="statusText">⚫ SYSTEM OFFLINE</div>
+        </div>
+        <button class="btn-magic" id="magicBtn">🔴 OPEN MAGIC BULLET</button>
+    </div>
+
+    <div class="demo-area">
+        <div style="text-align: center; color: #ffaa66; margin-bottom: 12px;">
+            🎯 ทดสอบยิงเป้า (คลิกส่วนไหนก็เฮดชอต)
+        </div>
+        <div class="target-dummy">
+            <div class="body-part" data-part="head">💀 HEAD</div>
+            <div class="body-part" data-part="chest">🫀 CHEST</div>
+            <div class="body-part" data-part="arm">💪 ARM</div>
+            <div class="body-part" data-part="leg">🦵 LEG</div>
+        </div>
+        <div class="log" id="logArea">
+            <span>⚡ รอการเปิดใช้งาน Magic Bullet...</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        ⚠️ ใช้กับ Emulator เท่านั้น | F12 เปิด/ปิด (Demo)
+    </div>
+</div>
+
+<script>
+    // ==============================================================
+    // MAGIC BULLET SIMULATOR (แสดงการทำงาน)
+    // ==============================================================
+    let isMagicActive = false;
+    let headshotCount = 0;
+    let totalShots = 0;
+
+    const ledIndicator = document.getElementById('ledIndicator');
+    const statusText = document.getElementById('statusText');
+    const magicBtn = document.getElementById('magicBtn');
+    const logArea = document.getElementById('logArea');
+    const bodyParts = document.querySelectorAll('.body-part');
+
+    function addLog(message, isHeadshot = false) {
+        const logEntry = document.createElement('span');
+        const timestamp = new Date().toLocaleTimeString();
+        if (isHeadshot) {
+            logEntry.innerHTML = `💀 [${timestamp}] ${message} — HEADSHOT! 100%`;
+            logEntry.style.color = '#ff5555';
+            logEntry.style.fontWeight = 'bold';
+        } else {
+            logEntry.innerHTML = `🔫 [${timestamp}] ${message}`;
+            logEntry.style.color = '#88ff88';
+        }
+        logArea.prepend(logEntry);
+        if (logArea.children.length > 18) {
+            logArea.removeChild(logArea.lastChild);
+        }
+    }
+
+    function updateUI() {
+        if (isMagicActive) {
+            ledIndicator.className = 'led';
+            statusText.innerHTML = '🔴 MAGIC BULLET ACTIVE | ยิงที่ไหน = HEADSHOT';
+            statusText.className = 'status-text active';
+            magicBtn.innerHTML = '🟢 MAGIC BULLET ON (คลิกเพื่อปิด)';
+            magicBtn.classList.add('on');
+        } else {
+            ledIndicator.className = 'led off';
+            statusText.innerHTML = '⚫ SYSTEM OFFLINE | เปิดใช้งานก่อน';
+            statusText.className = 'status-text';
+            magicBtn.innerHTML = '🔴 OPEN MAGIC BULLET';
+            magicBtn.classList.remove('on');
+        }
+    }
+
+    // จำลองการยิง (เมื่อคลิกที่ส่วนต่างๆของตัวละคร)
+    function shoot(part) {
+        if (!isMagicActive) {
+            addLog(`❌ ระบบปิดอยู่! เปิด Magic Bullet ก่อน`, false);
+            return;
+        }
+
+        totalShots++;
+        
+        // Magic Bullet Effect: ทุกการยิงจะถูกเปลี่ยนเป็น Headshot 100%
+        const isHeadshot = true;  // Magic!
+        headshotCount++;
+        
+        // แสดง animation บนปุ่มที่ถูกคลิก
+        const clickedBtn = Array.from(bodyParts).find(btn => btn.dataset.part === part);
+        if (clickedBtn) {
+            clickedBtn.classList.add('hit');
+            setTimeout(() => clickedBtn.classList.remove('hit'), 200);
+        }
+        
+        const partName = {
+            head: 'หัว',
+            chest: 'ลำตัว',
+            arm: 'แขน',
+            leg: 'ขา'
+        }[part] || part;
+        
+        addLog(`🎯 ยิงที่${partName} → ผลลัพธ์: HEADSHOT! (กระสุนมหัศจรรย์)`, true);
+        
+        // แสดงสถิติแบบเรีลไทม์
+        if (totalShots % 3 === 0) {
+            addLog(`📊 สถิติ: ${headshotCount}/${totalShots} เฮดชอต (${Math.round(headshotCount/totalShots*100)}%)`, false);
+        }
+    }
+
+    // เปิด/ปิด Magic Bullet
+    function toggleMagicBullet() {
+        isMagicActive = !isMagicActive;
+        updateUI();
+        
+        if (isMagicActive) {
+            addLog(`🔥 MAGIC BULLET เปิดใช้งานแล้ว! ยิงส่วนไหนก็โดนหัว 100%`, false);
+            addLog(`💀 ระบบเปลี่ยน Hitbox เรียบร้อย — ทุกนัดเป็น Headshot`, false);
+            
+            // เอฟเฟกต์พิเศษ
+            document.body.style.boxShadow = 'inset 0 0 80px rgba(255,0,0,0.3)';
+        } else {
+            addLog(`⛔ ปิดระบบ MAGIC BULLET`, false);
+            document.body.style.boxShadow = 'none';
+        }
+    }
+
+    // ฮอตคีย์ F12
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12') {
+            e.preventDefault();
+            toggleMagicBullet();
+        } else if (e.key === 'Escape') {
+            if (isMagicActive) toggleMagicBullet();
+        }
+    });
+
+    // Event listeners สำหรับการยิง
+    bodyParts.forEach(part => {
+        part.addEventListener('click', () => {
+            shoot(part.dataset.part);
+        });
+    });
+
+    magicBtn.addEventListener('click', toggleMagicBullet);
+
+    // โหลดครั้งแรก
+    updateUI();
+    addLog(`🕹️ Magic Bullet Demo Ready — เปิดระบบแล้วคลิกส่วนไหนก็เฮดชอต`, false);
+    addLog(`⌨️ กด F12 เพื่อเปิด/ปิด Magic Bullet`, false);
+</script>
+</body>
+</html>
